@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         scaffoldBackgroundColor: const Color.fromRGBO(18, 16, 30, 1),
       ),
-      home: const MyHomePage(),
+      home: SafeArea(child: const MyHomePage(),)
     );
   }
 }
