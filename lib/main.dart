@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:solo_learning/screens/homePage.dart';
 import 'package:provider/provider.dart';
 import 'package:solo_learning/state/stateProvider.dart';
-import 'package:solo_learning/screens/achievementsScreens/levelUpSreen.dart';
 
 //temporarily
 void main() async {
