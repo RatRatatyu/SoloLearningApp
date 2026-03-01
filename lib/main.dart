@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:solo_learning/screens/homePage.dart';
 import 'package:provider/provider.dart';
 import 'package:solo_learning/state/stateProvider.dart';
+import 'package:solo_learning/state/timerProvider.dart';
 
 //temporarily
 void main() async {
@@ -12,10 +13,16 @@ void main() async {
     DeviceOrientation.portraitUp,
   ]);
   runApp(
-    ChangeNotifierProvider(
-        create: (_) => stateProvider(),
-        child: const MyApp()
-    ),
+    MultiProvider(providers: [
+      ChangeNotifierProvider(
+          create: (_) => stateProvider(),
+          child: const MyApp()
+      ),
+      ChangeNotifierProvider(
+          create: (_) => timerProvider(),
+          child: const MyApp()
+      ),
+    ])
   );
 }
 
