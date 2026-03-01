@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:solo_learning/state/stateProvider.dart';
+import 'package:provider/provider.dart';
 
 class mainProgressInfo extends StatelessWidget {
   const mainProgressInfo({super.key});
@@ -6,6 +8,9 @@ class mainProgressInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final level = context.select((stateProvider p) => p.levelNow);
+    final xp = context.select((stateProvider p) => p.totalXpNow);
+    final nextXp = context.select((stateProvider p)=> p.nextLevelXp);
 
     return Column(
       children: [
@@ -25,13 +30,13 @@ class mainProgressInfo extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text("Level 1", style: TextStyle(fontSize: 20, color: Colors.white),),
+                  Text("Level $level", style: TextStyle(fontSize: 20, color: Colors.white),),
                   SizedBox(height: 30,),
-                  Text("XP 100/1000", style: TextStyle(color: Colors.white),),
+                  Text("XP $xp/$nextXp", style: TextStyle(color: Colors.white),),
                   SizedBox(
                     width: 120,
                     child: LinearProgressIndicator(
-                      value: 10/ 100,
+                      value: xp/ nextXp,
                       minHeight: 12,
                       backgroundColor: Colors.grey.shade800,
                       valueColor: AlwaysStoppedAnimation<Color>(colorScheme.primary),
@@ -46,7 +51,7 @@ class mainProgressInfo extends StatelessWidget {
 
            Container(
              padding: EdgeInsets.all(10),
-             child:  Text("+50 XP to next level", style: TextStyle(fontSize: 15, color: Colors.white),),
+             child:  Text("+"+ (nextXp-xp).toString() +"XP to next level", style: TextStyle(fontSize: 15, color: Colors.white),),
            )
           ],
         )
