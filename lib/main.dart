@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:solo_learning/screens/homePage.dart';
+import 'package:provider/provider.dart';
+import 'package:solo_learning/state/stateProvider.dart';
+import 'package:solo_learning/screens/achievementsScreens/levelUpSreen.dart';
 
-void main() {
-  runApp(const MyApp());
+//temporarily
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
+  runApp(
+    ChangeNotifierProvider(
+        create: (_) => stateProvider(),
+        child: const MyApp()
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
