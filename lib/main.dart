@@ -14,15 +14,11 @@ void main() async {
   ]);
   runApp(
     MultiProvider(providers: [
-      ChangeNotifierProvider(
-          create: (_) => stateProvider(),
-          child: const MyApp()
-      ),
-      ChangeNotifierProvider(
-          create: (_) => timerProvider(),
-          child: const MyApp()
-      ),
-    ])
+      ChangeNotifierProvider(create: (_) => stateProvider()),
+      ChangeNotifierProvider(create: (_) => timerProvider()),
+    ],
+      child: MyApp(),
+    )
   );
 }
 
@@ -35,6 +31,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         scaffoldBackgroundColor: const Color.fromRGBO(18, 16, 30, 1),
+        cardColor: const Color.fromRGBO(62, 62, 80, 1),
       ),
       home: SafeArea(child: const MyHomePage(),)
     );
