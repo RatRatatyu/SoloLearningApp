@@ -81,6 +81,11 @@ class mainScreen extends StatelessWidget {
             ),
             margin: EdgeInsets.all(15),
             height: 300,
+            child: Center(child: Text(
+              "Keep going! Every XP counts 💪",
+              style: TextStyle(fontSize: 18, color: Colors.white),
+              textAlign: TextAlign.center,
+            ),),
           ),
         ],
       ),
