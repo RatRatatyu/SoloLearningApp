@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:solo_learning/screens/achievementsScreens/levelUpSreen.dart';
 
 class stateProvider extends ChangeNotifier{
   bool isLevelUp = false;
