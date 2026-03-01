@@ -33,9 +33,9 @@ class mainScreen extends StatelessWidget {
         backgroundColor: backgroundColor,
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          SizedBox(height: 16,),
+          SizedBox(height: 30,),
+
           Container(
             decoration: BoxDecoration(
 
@@ -44,12 +44,12 @@ class mainScreen extends StatelessWidget {
               border: Border.all(width: 2, color: colorScheme.primary),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.deepPurple.withOpacity(0.6),
+                  color: Colors.deepPurple.withAlpha(60),
                   blurRadius: 12,
                   spreadRadius: 3,
                 ),
                 BoxShadow(
-                  color: colorScheme.primary.withOpacity(0.3),
+                  color: colorScheme.primary.withAlpha(80),
                   blurRadius: 20,
                   spreadRadius: 6,
                 ),
@@ -59,17 +59,28 @@ class mainScreen extends StatelessWidget {
             height: 220,
             child: mainProgressInfo(),
           ),
-          SizedBox(height: 16,),
+          SizedBox(height: 40,),
           Container(
+            decoration: BoxDecoration(
+
+              color: backgroundColor,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(width: 2, color: colorScheme.primary),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.deepPurple.withAlpha(60),
+                  blurRadius: 12,
+                  spreadRadius: 3,
+                ),
+                BoxShadow(
+                  color: colorScheme.primary.withAlpha(80),
+                  blurRadius: 20,
+                  spreadRadius: 6,
+                ),
+              ],
+            ),
             margin: EdgeInsets.all(15),
-            height: 90,
-            color: Colors.white,
-          ),
-          SizedBox(height: 16,),
-          Container(
-            margin: EdgeInsets.all(15),
-            height: 200,
-            color: Colors.white,
+            height: 300,
           ),
         ],
       ),
