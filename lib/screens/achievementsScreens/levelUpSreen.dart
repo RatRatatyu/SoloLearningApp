@@ -20,6 +20,8 @@ class levelUpWidget extends StatelessWidget {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset('lib/assets/catHappy.png', height: 250, width: 250, fit: BoxFit.contain,),
             Text("You reached Level $level !", style: TextStyle(fontSize: 30, color: Colors.white),),
