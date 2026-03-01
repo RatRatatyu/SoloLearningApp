@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:solo_learning/widgets/progressWidget.dart';
+import 'package:solo_learning/state/stateProvider.dart';
+import 'package:provider/provider.dart';
+import 'package:solo_learning/screens/achievementsScreens/levelUpSreen.dart';
 
 class mainScreen extends StatelessWidget {
   const mainScreen({super.key});
@@ -8,6 +11,21 @@ class mainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final backgroundColor = Theme.of(context).scaffoldBackgroundColor;
     final colorScheme = Theme.of(context).colorScheme;
+
+
+    //show level up congratulations screen
+    final isLevelUp = context.select((stateProvider p) => p.isLevelUp);
+    if (isLevelUp) {
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        await Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => levelUpWidget()),
+        );
+        if (!context.mounted) return;
+
+        context.read<stateProvider>().resetLevelUp();
+      });
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -53,9 +71,6 @@ class mainScreen extends StatelessWidget {
             height: 200,
             color: Colors.white,
           ),
-
-
-
         ],
       ),
 
