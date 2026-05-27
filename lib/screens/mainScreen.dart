@@ -4,13 +4,13 @@ import 'package:solo_learning/state/stateProvider.dart';
 import 'package:provider/provider.dart';
 import 'package:solo_learning/screens/achievementsScreens/levelUpSreen.dart';
 
-class mainScreen extends StatelessWidget {
-  const mainScreen({super.key});
+
+class MainScreen extends StatelessWidget {
+  const MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final backgroundColor = Theme.of(context).scaffoldBackgroundColor;
-    final colorScheme = Theme.of(context).colorScheme;
 
 
     //show level up congratulations screen
@@ -34,53 +34,10 @@ class mainScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(height: 30,),
 
-          Container(
-            decoration: BoxDecoration(
 
-              color: backgroundColor,
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(width: 2, color: colorScheme.primary),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.deepPurple.withAlpha(60),
-                  blurRadius: 12,
-                  spreadRadius: 3,
-                ),
-                BoxShadow(
-                  color: colorScheme.primary.withAlpha(80),
-                  blurRadius: 20,
-                  spreadRadius: 6,
-                ),
-              ],
-            ),
-            margin: EdgeInsets.all(15),
-            height: 220,
-            child: mainProgressInfo(),
-          ),
-          SizedBox(height: 40,),
-          Container(
-            decoration: BoxDecoration(
-
-              color: backgroundColor,
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(width: 2, color: colorScheme.primary),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.deepPurple.withAlpha(60),
-                  blurRadius: 12,
-                  spreadRadius: 3,
-                ),
-                BoxShadow(
-                  color: colorScheme.primary.withAlpha(80),
-                  blurRadius: 20,
-                  spreadRadius: 6,
-                ),
-              ],
-            ),
-            margin: EdgeInsets.all(15),
-            height: 300,
+          ContainerDecoration(child: mainProgressInfo()),
+          ContainerDecoration(
             child: Center(child: Text(
               "Keep going! Every XP counts 💪",
               style: TextStyle(fontSize: 18, color: Colors.white),
@@ -90,6 +47,36 @@ class mainScreen extends StatelessWidget {
         ],
       ),
 
+    );
+  }
+}
+
+
+class ContainerDecoration extends StatelessWidget {
+  const ContainerDecoration({super.key, required this.child});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final backgroundColor = Theme.of(context).scaffoldBackgroundColor;
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return Container(
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(width: 2, color: colorScheme.primary),
+        boxShadow: [
+          BoxShadow(
+            color: colorScheme.primary.withAlpha(80),
+            blurRadius: 20,
+            spreadRadius: 6,
+          ),
+        ],
+      ),
+      margin: EdgeInsets.all(15),
+      child: child,
     );
   }
 }
