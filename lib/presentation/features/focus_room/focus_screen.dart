@@ -9,11 +9,11 @@ class FocusScreen extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-          flex: 1,
+          flex: 2,
           child: TimerDisplay(),
         ),
         Expanded(
-          flex: 2,
+          flex: 3,
           child: Placeholder()
         )
       ],
