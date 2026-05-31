@@ -9,11 +9,11 @@ class TimeProvider extends ChangeNotifier {
   bool _isTimerRun = false;
   bool get isTimerRun => _isTimerRun;
 
-  int _setMinutes = 1;
-  int _setHourse = 0;
+  int _setMinutes = 30;
+  int _setHours = 0;
 
 
-  Duration get countdownDuration => Duration(minutes: _setMinutes, hours: _setHourse);
+  Duration get countdownDuration => Duration(minutes: _setMinutes, hours: _setHours);
   Timer? _timer;
 
 
@@ -48,11 +48,10 @@ class TimeProvider extends ChangeNotifier {
 
   }
 
-  void updateTimer(int hourse, int minutes){
+  void updateTimer(int hours, int minutes){
     _setMinutes = minutes;
-    _setHourse = hourse;
+    _setHours = hours;
     resetTimer();
-
   }
 
   void stopTimer() {
