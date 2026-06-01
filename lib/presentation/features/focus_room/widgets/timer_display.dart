@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:solo_learning/presentation/features/focus_room/data/timer_provider.dart';
 import 'package:solo_learning/presentation/features/focus_room/widgets/timer_settings.dart';
 
-import '../screen/aesthetic_timer_screen.dart';
+import '../screens/aesthetic_timer_screen.dart';
 
 class TimerDisplay extends StatelessWidget {
   const TimerDisplay({super.key});
