@@ -1,7 +1,6 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
-import 'package:solo_learning/state/stateProvider.dart';
 
 class TaskModel{
   final String id;
@@ -16,9 +15,7 @@ class TaskModel{
 }
 
 class TaskProvider extends ChangeNotifier{
-  final List<TaskModel> _tasks = [TaskModel(title: "Work out", id: "123", isCompleted: false),
-    TaskModel(title: "Study Flutter", id: "124", isCompleted: false),
-  ];
+  final List<TaskModel> _tasks = [];
 
   List<TaskModel> get tasks => UnmodifiableListView(_tasks);
 
