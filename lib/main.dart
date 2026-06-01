@@ -3,8 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:solo_learning/screens/homePage.dart';
 import 'package:provider/provider.dart';
 import 'package:solo_learning/state/stateProvider.dart';
-import 'package:solo_learning/state/timerProvider.dart';
-
+import 'package:solo_learning/presentation/features/focus_room/data/timer_provider.dart';
 //temporarily
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +14,7 @@ void main() async {
   runApp(
     MultiProvider(providers: [
       ChangeNotifierProvider(create: (_) => stateProvider()),
-      ChangeNotifierProvider(create: (_) => timerProvider()),
+      ChangeNotifierProvider(create: (_) => TimeProvider()),
     ],
       child: MyApp(),
     )
