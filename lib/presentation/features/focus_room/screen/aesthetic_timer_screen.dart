@@ -32,23 +32,77 @@ class _AestheticTimerScreenState extends State<AestheticTimerScreen> {
   Widget build(BuildContext context) {
     var timer = context.watch<TimeProvider>();
     final backgroundColor = Theme.of(context).scaffoldBackgroundColor;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.white.withAlpha(80)),
         backgroundColor: backgroundColor,
       ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: Column(
         children: [
-          ClockDecoration(value: timer.hours.toString().padLeft(2, "0"), type: "Hours"),
-          ClockDecoration(value: timer.minutes.toString().padLeft(2, "0"), type: "Minutes"),
-          ClockDecoration(value: timer.seconds.toString().padLeft(2, "0"), type: "Seconds", isLast: true,),
-
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ClockDecoration(value: timer.hours.toString().padLeft(2, "0"), type: "Hours"),
+              ClockDecoration(value: timer.minutes.toString().padLeft(2, "0"), type: "Minutes"),
+              ClockDecoration(value: timer.seconds.toString().padLeft(2, "0"), type: "Seconds", isLast: true,),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              IconButtonDesign(
+                onPressed: () => timer.isTimerRun ? timer.pauseTimer() : timer.startTimer(),
+                iconType: timer.isTimerRun ? Icons.pause : Icons.play_arrow,
+                buttonColor: colorScheme.primary,
+              ),
+              SizedBox(width: 30,),
+              IconButtonDesign(
+                onPressed: timer.resetTimer,
+                iconType: Icons.refresh,
+                buttonColor: colorScheme.primary.withAlpha(90),
+              )
+            ],
+          )
         ],
       ),
+
+
       backgroundColor: backgroundColor,
+    );
+  }
+}
+
+
+class IconButtonDesign extends StatelessWidget {
+  const IconButtonDesign({super.key, required this.onPressed, required this.iconType, required this.buttonColor});
+
+  final VoidCallback onPressed;
+  final IconData iconType;
+  final Color buttonColor;
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Column(
+      children: [
+        Container(
+            decoration: BoxDecoration(
+              color: buttonColor,
+              shape: BoxShape.circle,
+            ),
+            child:
+            IconButton(
+              onPressed: onPressed,
+              icon: Icon(iconType),
+              color: Colors.white,
+              iconSize: 30,
+            )
+        ),
+      ],
     );
   }
 }
@@ -93,10 +147,10 @@ class ClockDecoration extends StatelessWidget {
               const SizedBox(width: 10),
               Text(
                 ":",
-                style: Theme.of(context)
-                    .textTheme
-                    .displaySmall
-                    ?.copyWith(color: Colors.white),
+                style: TextStyle(
+                  fontSize: 80,
+                  fontWeight: FontWeight.w300,
+                  color: Colors.white,)
               ),
               const SizedBox(width: 10),
             ]
