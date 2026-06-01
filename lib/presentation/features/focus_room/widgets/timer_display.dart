@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:solo_learning/presentation/features/focus_room/data/timer_provider.dart';
+import 'package:solo_learning/presentation/features/focus_room/widgets/timer_settings.dart';
 
 import '../screen/aesthetic_timer_screen.dart';
 
@@ -38,7 +39,13 @@ class TimerDisplay extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white)
               ),
               IconButton(
-                  onPressed: null,
+                  onPressed: (){
+                    showDialog(
+                        context: context,
+                        builder: (_) => TimerSettingsDialog(),
+                        barrierDismissible: false
+                    );
+                  },
                   icon: Icon(Icons.settings, color: Colors.white.withAlpha(80),)
               )
             ],
