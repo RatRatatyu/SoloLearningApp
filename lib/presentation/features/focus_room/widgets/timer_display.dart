@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:solo_learning/presentation/features/focus_room/data/timer_provider.dart';
 
+import '../screen/aesthetic_timer_screen.dart';
+
 class TimerDisplay extends StatelessWidget {
   const TimerDisplay({super.key});
 
@@ -55,8 +57,14 @@ class TimerDisplay extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             child: IconButton(
-              onPressed: timer.startTimer,
-              icon: const Icon(Icons.play_arrow),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                      builder: (context) => const AestheticTimerScreen(),
+                  )
+                );
+              },
+              icon: Icon(Icons.play_arrow),
               color: Colors.white,
               iconSize: 30,
             ),
