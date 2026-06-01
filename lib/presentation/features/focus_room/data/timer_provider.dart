@@ -37,7 +37,6 @@ class TimeProvider extends ChangeNotifier {
         notifyListeners();
       } else {
         stopTimer();
-        resetTimer();
       }
     });
   }
@@ -58,6 +57,14 @@ class TimeProvider extends ChangeNotifier {
     _timer?.cancel();
     _isTimerRun = false;
     WakelockPlus.disable();
+    resetTimer();
+  }
+
+  void pauseTimer(){
+    _timer?.cancel();
+    _isTimerRun = false;
+    WakelockPlus.disable();
+    notifyListeners();
   }
 
   @override
