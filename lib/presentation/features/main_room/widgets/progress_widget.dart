@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:solo_learning/state/stateProvider.dart';
+import 'package:solo_learning/presentation/features/main_room/data/state_provider.dart';
 import 'package:provider/provider.dart';
 
-class mainProgressInfo extends StatelessWidget {
-  const mainProgressInfo({super.key});
+class MainProgressInfo extends StatelessWidget {
+  const MainProgressInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final level = context.select((stateProvider p) => p.levelNow);
-    final xp = context.select((stateProvider p) => p.totalXpNow);
-    final nextXp = context.select((stateProvider p)=> p.nextLevelXp);
+    final level = context.select((StateProvider p) => p.levelNow);
+    final xp = context.select((StateProvider p) => p.totalXpNow);
+    final nextXp = context.select((StateProvider p)=> p.nextLevelXp);
 
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.all(5),
+          margin: EdgeInsets.all(8),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               border: Border.all( width: 2, color: colorScheme.primary)
