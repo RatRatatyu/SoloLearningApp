@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:solo_learning/presentation/features/focus_room/widgets/tasks_display.dart';
 import 'package:solo_learning/presentation/features/focus_room/widgets/timer_display.dart';
 
 class FocusScreen extends StatelessWidget {
@@ -14,7 +15,7 @@ class FocusScreen extends StatelessWidget {
         ),
         Expanded(
           flex: 3,
-          child: Placeholder()
+          child: TasksDisplay()
         )
       ],
     );
