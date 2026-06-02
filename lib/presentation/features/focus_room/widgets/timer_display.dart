@@ -31,24 +31,27 @@ class TimerDisplay extends StatelessWidget {
       margin: EdgeInsets.all(25),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                  "Focus timer",
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white)
+          Padding(
+              padding: const EdgeInsets.only(right: 16.0, top: 8.0, left: 16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                      "Focus timer",
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white)
+                  ),
+                  IconButton(
+                      onPressed: (){
+                        showDialog(
+                            context: context,
+                            builder: (_) => TimerSettingsDialog(),
+                            barrierDismissible: false
+                        );
+                      },
+                      icon: Icon(Icons.settings, color: Colors.white.withAlpha(80),)
+                  )
+                ],
               ),
-              IconButton(
-                  onPressed: (){
-                    showDialog(
-                        context: context,
-                        builder: (_) => TimerSettingsDialog(),
-                        barrierDismissible: false
-                    );
-                  },
-                  icon: Icon(Icons.settings, color: Colors.white.withAlpha(80),)
-              )
-            ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
