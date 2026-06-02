@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:solo_learning/widgets/progressWidget.dart';
-import 'package:solo_learning/state/stateProvider.dart';
+import 'package:solo_learning/presentation/features/main_room/widgets/motivation_words.dart';
+import 'package:solo_learning/presentation/features/main_room/widgets/progress_widget.dart';
+import 'package:solo_learning/presentation/features/main_room/data/state_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:solo_learning/screens/achievementsScreens/levelUpSreen.dart';
 
@@ -13,8 +14,8 @@ class MainScreen extends StatelessWidget {
     final backgroundColor = Theme.of(context).scaffoldBackgroundColor;
 
 
-    //show level up congratulations screen
-    final isLevelUp = context.select((stateProvider p) => p.isLevelUp);
+    //show level up congratulations screens
+    final isLevelUp = context.select((StateProvider p) => p.isLevelUp);
     if (isLevelUp) {
       WidgetsBinding.instance.addPostFrameCallback((_) async {
         await Navigator.push(
@@ -23,7 +24,7 @@ class MainScreen extends StatelessWidget {
         );
         if (!context.mounted) return;
 
-        context.read<stateProvider>().resetLevelUp();
+        context.read<StateProvider>().resetLevelUp();
       });
     }
 
@@ -35,15 +36,9 @@ class MainScreen extends StatelessWidget {
       body: Column(
         children: [
 
-
-          ContainerDecoration(child: mainProgressInfo()),
-          ContainerDecoration(
-            child: Center(child: Text(
-              "Keep going! Every XP counts 💪",
-              style: TextStyle(fontSize: 18, color: Colors.white),
-              textAlign: TextAlign.center,
-            ),),
-          ),
+          ContainerDecoration(child: MainProgressInfo()),
+          ContainerDecoration(child: Container(),),
+          ContainerDecoration(child: MotivationWords()),
         ],
       ),
 
