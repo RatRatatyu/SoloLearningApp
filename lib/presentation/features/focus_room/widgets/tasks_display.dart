@@ -37,7 +37,7 @@ class ListTask extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final taskProvider = context.watch<TaskProvider>();
-    final listTask = taskProvider.tasks;
+    final listTask = taskProvider.tasksList;
     final colorScheme = Theme.of(context).colorScheme;
 
     return Column(
