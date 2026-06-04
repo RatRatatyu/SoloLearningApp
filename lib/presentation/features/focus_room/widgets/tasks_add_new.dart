@@ -34,16 +34,16 @@ class _TasksAddNewState extends State<TasksAddNew> {
       ),
       actions: [
         ElevatedButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text("Cancel")
+        ),
+        ElevatedButton(
             onPressed: () {
               context.read<TaskProvider>().addTask(_finalTaskName);
               Navigator.of(context).pop();
             },
             child: Text("Save")
         ),
-        ElevatedButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: Text("Cancel")
-        )
       ],
     );
   }
