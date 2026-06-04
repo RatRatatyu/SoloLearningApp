@@ -17,7 +17,7 @@ class TaskModel{
 class TaskProvider extends ChangeNotifier{
   final List<TaskModel> _tasks = [];
 
-  List<TaskModel> get tasks => UnmodifiableListView(_tasks);
+  List<TaskModel> get tasksList => UnmodifiableListView(_tasks);
 
   void addTask(String title){
     if(title.isEmpty) return;
