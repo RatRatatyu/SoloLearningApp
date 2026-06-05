@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:solo_learning/presentation/features/focus_room/data/task_provider.dart';
-import 'package:solo_learning/screens/homePage.dart';
+import 'package:solo_learning/presentation/homePage.dart';
 import 'package:provider/provider.dart';
 import 'package:solo_learning/presentation/features/main_room/data/state_provider.dart';
 import 'package:solo_learning/presentation/features/focus_room/data/timer_provider.dart';
