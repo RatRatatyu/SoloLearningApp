@@ -24,7 +24,7 @@ class TimeProvider extends ChangeNotifier {
 
   late int _currentSeconds = countdownDuration.inSeconds;
 
-  void startTimer() {
+  void startTimer({required VoidCallback onFinished}) {
     if (_isTimerRun || _currentSeconds <= 0) return;
 
     _isTimerRun = true;
@@ -36,6 +36,7 @@ class TimeProvider extends ChangeNotifier {
         _currentSeconds--;
         notifyListeners();
       } else {
+        onFinished();
         stopTimer();
       }
     });
