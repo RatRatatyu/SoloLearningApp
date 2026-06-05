@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:solo_learning/presentation/features/focus_room/data/task_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:solo_learning/presentation/features/focus_room/widgets/tasks_add_new.dart';
+import 'package:solo_learning/presentation/features/main_room/data/state_provider.dart';
 
 class TasksDisplay extends StatelessWidget {
   const TasksDisplay({super.key});
@@ -104,7 +105,10 @@ class ListTask extends StatelessWidget {
                   activeColor: colorScheme.primary,
                   onChanged: task.isCompleted
                     ? null
-                    : (value) => taskProvider.completeTask(task.id),
+                    : (value) {
+                      taskProvider.completeTask(task.id);
+                      context.read<StateProvider>().xpUp(60);
+                    },
                     ),
                   )
             );
