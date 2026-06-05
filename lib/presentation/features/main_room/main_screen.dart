@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:solo_learning/presentation/features/main_room/widgets/graph_productive.dart';
 import 'package:solo_learning/presentation/features/main_room/widgets/motivation_words.dart';
 import 'package:solo_learning/presentation/features/main_room/widgets/progress_widget.dart';
 import 'package:solo_learning/presentation/features/main_room/data/state_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:solo_learning/screens/achievementsScreens/levelUpSreen.dart';
+import 'package:solo_learning/presentation/features/common/screens/level_up_screen.dart';
 
 
 class MainScreen extends StatelessWidget {
@@ -37,7 +38,10 @@ class MainScreen extends StatelessWidget {
         children: [
 
           ContainerDecoration(child: MainProgressInfo()),
-          ContainerDecoration(child: Container(),),
+         Expanded(
+           flex: 2,
+           child:  ContainerDecoration(child: GraphProductive(),),
+         ),
           ContainerDecoration(child: MotivationWords()),
         ],
       ),
