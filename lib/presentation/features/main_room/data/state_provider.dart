@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class stateProvider extends ChangeNotifier{
+class StateProvider extends ChangeNotifier{
   bool isLevelUp = false;
   int levelNow = 1;
   late int nextLevelXp = 100;

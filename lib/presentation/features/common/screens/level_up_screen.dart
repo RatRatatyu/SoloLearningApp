@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:solo_learning/state/stateProvider.dart';
+import 'package:solo_learning/presentation/features/main_room/data/state_provider.dart';
 import 'package:provider/provider.dart';
 
 
@@ -9,7 +9,7 @@ class levelUpWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final backgroundColor = Theme.of(context).scaffoldBackgroundColor;
-    final level = context.select((stateProvider p) => p.levelNow);
+    final level = context.select((StateProvider p) => p.levelNow);
 
     return Scaffold(
       appBar: AppBar(

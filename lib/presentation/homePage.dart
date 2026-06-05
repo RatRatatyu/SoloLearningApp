@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:solo_learning/screens/mainScreen.dart';
-import 'package:solo_learning/screens/timerscreen.dart';
+import 'package:solo_learning/presentation/features/focus_room/focus_screen.dart';
+import 'features/main_room/main_screen.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -13,8 +13,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectIndex =0;
   final List<Widget> _pages =[
-    mainScreen(),
-    timerScreen()
+    MainScreen(),
+    FocusScreen()
   ];
   @override
   Widget build(BuildContext context) {
