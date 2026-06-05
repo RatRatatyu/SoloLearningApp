@@ -2,8 +2,6 @@
 
 **SoleLearning** is a gamified productivity app designed to help anyone stay focused and track their learning progress through an RPG-inspired leveling system.
 
-> ⚠️ The project name is temporary and may change in the future.
-
 This project was created as part of the **DEV Weekend Challenge**.  
 While it started as a weekend MVP, it is not intended to be abandoned and may continue to evolve beyond the competition.
 
@@ -23,5 +21,4 @@ While it started as a weekend MVP, it is not intended to be abandoned and may co
 
 ## 📌 Project Status
 
-Currently in active development.  
-Built as a weekend challenge project but intended to be iterated on and potentially developed further.
+This is first version of this project
