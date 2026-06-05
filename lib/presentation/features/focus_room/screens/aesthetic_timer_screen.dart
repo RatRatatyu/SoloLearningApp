@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:solo_learning/presentation/features/focus_room/data/timer_provider.dart';
+import '../../main_room/data/state_provider.dart';
+import '../data/timer_provider.dart';
 
 
 class AestheticTimerScreen extends StatefulWidget {
@@ -55,7 +56,9 @@ class _AestheticTimerScreenState extends State<AestheticTimerScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               IconButtonDesign(
-                onPressed: () => timer.isTimerRun ? timer.pauseTimer() : timer.startTimer(),
+                onPressed: () => timer.isTimerRun ? timer.pauseTimer() : timer.startTimer(onFinished: () {
+                  context.read<StateProvider>().xpUp(100);
+                }),
                 iconType: timer.isTimerRun ? Icons.pause : Icons.play_arrow,
                 buttonColor: colorScheme.primary,
               ),
