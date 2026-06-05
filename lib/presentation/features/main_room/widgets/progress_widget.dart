@@ -21,11 +21,12 @@ class MainProgressInfo extends StatelessWidget {
               border: Border.all( width: 2, color: colorScheme.primary)
           ),
           child: Row(
-            children: [Column(
+            children: [
+              Column(
                 children: [
                   Image.asset('lib/assets/catSleep.png', height: 150, width: 200, fit: BoxFit.contain,)
                 ]
-            ),
+              ),
               SizedBox(width: 30,),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
